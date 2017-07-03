@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* ////////////////////////////////////////
+default
+//////////////////////////////////////// */
+html,body {
+  -webkit-text-size-adjust: none;
+  font-size: $fs-base+px;
+}
+
+html {
+}
+
+html[lang="ja"] body {
+  @if $font-family-ja {
+    font-family:$font-family-ja;
+  }
+}
+
+html[lang="en"] body {
+  @if $font-family-en {
+    font-family:$font-family-en;
+  }
+}
+
+body {
+  font-family: $font-family;
+  color: $color;
+  background-color: $bg-color;
+
+  // display error for command line compile
+  @if $scss-display-error == true {
+    @include scss-display-error;
+  }
+}
+
+
+body.win-ie { }
+body.win { font-family: $font-family-win; }
+
+/* HTML - a -------------------------------------------- */
+a { cursor:pointer; color: $color-a; }
+a:link { color: $color-a-link; }
+a:visited { color: $color-a-visited; }
+a:hover { color: $bg-color; background-color: $color-a; }
+a:active { color: $color-a-active; }
+a:focus { outline: none; }
+
+
+// a:hover img,
+// .hover img {
+//   @include alpha();
+// }
+
+.hover {
+  cursor: pointer;
+  // @include alpha();
+}
+
+/* CSS3 -------------------------------------------- */
+//is supported in IE9+, Opera, Google Chrome and Safari. Firefox supports an alternative, the ::-moz-selection.
+::selection { background:$color-selection; }
+::-moz-selection { background:$color-selection; }
+
+
+/* HTML - other -------------------------------------------- */
+table { border-collapse: collapse; padding: 0px; margin: 0px; }
+ul { list-style: none; }
+img { vertical-align: bottom; border: none; }
+
+sup { vertical-align: text-top; padding:0px 0.1em 0px 0.1em; line-height: 4px; font-size:70%;}
+sub { vertical-align: text-bottom; padding:0px 0.1em 0px 0.1em; line-height: 4px; font-size:70%; }
+
+
+
+@-webkit-keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
+}
+

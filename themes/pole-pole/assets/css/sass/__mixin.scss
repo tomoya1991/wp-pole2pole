@@ -1,0 +1,184 @@
+@charset "UTF-8";
+/* ////////////////////////////////////////
+mixin
+//////////////////////////////////////// */
+
+// $scss ------------------------------
+@mixin scss-display-error {
+  &:before {
+    display: block;
+    font-size: 20px;
+    padding: 20px;
+    white-space: pre;
+    line-height: 1.33;
+    font-family: "Monaco", monospace;
+    color: #f00;
+    background: #fff;
+    border:1px solid #f00;
+    content: "$buf";
+  }
+}
+
+// module ------------------------------
+// clearfix - http://nicolasgallagher.com/micro-clearfix-hack/ APRIL 21, 2011
+@mixin clearfix() {
+  &:before, &:after { content:""; display:table; } /* For modern browsers */
+  &:after { clear:both; }
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+@mixin text( $fs:15, $lh:1.8, $ls:0.010 ) {
+  font-size:$fs + px;
+  line-height:$lh + em;
+  letter-spacing:$ls + em;
+}
+
+// aタグ
+@mixin a-inline{
+  cursor:pointer;
+  color: $color;
+  text-decoration:none;
+  &:link { color: $color; }
+  &:visited { color: $color; }
+  &:hover { color: $color; }
+  &:active { color: $color; }
+  &:focus { outline: none; }
+}
+
+
+
+
+// layout ------------------------------
+// wrapper
+@mixin wrapper( $width:$layout-width ) {
+  width:$width + px;
+  margin:0px auto;
+  position: relative;
+}
+
+
+
+// effect ------------------------------
+// alpha
+@mixin alpha( $opacity:50 ) {
+  opacity: $opacity * 0.01;
+  filter: 'alpha(opacity=' + $opacity + ')';
+  -ms-filter: 'alpha(opacity=' + $opacity + ')';
+  -khtml-opacity: $opacity * 0.01;
+  -moz-opacity: $opacity * 0.01;
+}
+
+
+
+// css3 ------------------------------
+// table
+@mixin table( $width:auto, $valign:middle, $align:left ) {
+  display: table;
+  width: $width;
+  &>* {
+    display: table-cell;
+    vertical-align: $valign;
+    text-align: $align;
+  }
+}
+
+
+// define font size by rem
+@mixin fontsize($size: 24, $base: $fs-base) {
+  font-size: $size + px;
+  font-size: ($size / $base) * 1rem;
+}
+
+
+// propaties something
+@mixin propaties( $propatiy, $value ) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}#{$propatiy}: $value;
+  }
+
+}
+
+// background-size
+@mixin background-size($value:cover) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}background-size: $value;
+  }
+
+}
+
+// border-radius
+@mixin border-radius($value:0) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}border-radius: $value + px;
+  }
+
+}
+
+// box-shadow
+@mixin box-shadow($offset-v:0px, $offset-h:0px, $blur:30px, $spread:0px, $color: rgba(255,255,255,0.4), $type:'' ) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}box-shadow: $offset-v $offset-h $blur $spread $color $type;
+  }
+
+}
+
+// text-shadow
+@mixin text-shadow($value:rgba(0,0,0,1) 0px 0px 5px) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}text-shadow: $value;
+  }
+
+}
+
+// transition
+@mixin transition($value:all 0.1s ease) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}transition: $value;
+  }
+
+}
+
+// gradient
+@mixin gradient($style, $deg, $start, $end) {
+
+  @each $prefix in $support-browser-prefix {
+    background-image: #{$prefix} + $style + -gradient($deg, $start, $end);
+  }
+
+}
+
+// column
+@mixin column( $count, $width, $gap, $rColor:none, $rStyle:none, $rWidth:0 ) {
+
+  @each $prefix in $support-browser-prefix {
+    #{$prefix}column-count:$count;
+    #{$prefix}column-width:$width + px;
+    #{$prefix}column-gap:$gap + px;
+    #{$prefix}column-rule-color:$rColor;
+    #{$prefix}column-rule-style:$rStyle;
+    #{$prefix}column-rule-width:$rWidth + px;
+  }
+
+}
+
+
+// 自要素の幅・高さの指定と子要素の幅、高さの指定
+@mixin setSizeChild($width,$height,$tag,$size) {
+  width:$width + px;
+  height:$height + px;
+
+  #{$tag} {
+    width:($width - $size) + px;
+    height:($height - $size) + px;
+  }
+
+}
+
+
+

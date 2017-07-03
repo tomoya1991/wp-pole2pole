@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* ////////////////////////////////////////
+$scss
+//////////////////////////////////////// */
+$scss-display-error : false;
+
+/* ////////////////////////////////////////
+$useful
+//////////////////////////////////////// */
+$useful-module-loading : false;
+
+/* ////////////////////////////////////////
+$support
+//////////////////////////////////////// */
+$support-browser-prefix : -webkit-, -moz-, -ms-, -o-, '';
+
+/* ////////////////////////////////////////
+$color
+//////////////////////////////////////// */
+$color : #00f; //ベースとなるテキストカラー
+
+$color-a          : #00f;
+$color-a-link     : $color-a;
+$color-a-visited  : $color-a;
+$color-a-hover    : $color-a;
+$color-a-active   : $color-a;
+
+
+// bg ------------------------------
+$bg-color         : #fff; //#ffffe0;
+
+
+// line ------------------------------
+$line-color: #646464;         // 通常線の色
+
+
+// selection ------------------------------
+$color-selection: #ccc;
+
+
+/* ////////////////////////////////////////
+$font
+//////////////////////////////////////// */
+$font-family : "Helvetica Neue", Helvetica, "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro", Arial, sans-serif;
+//'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+
+$font-family-ja : Helvetica, 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+$font-family-en : Helvetica, Arial;
+
+$font-family-win : 'メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+
+
+
+/* ////////////////////////////////////////
+$fs font size
+//////////////////////////////////////// */
+$fs-base    : 18;
+
+/* ////////////////////////////////////////
+$layout
+//////////////////////////////////////// */
+$layout-width : 1000;
+// $layout-width-side: 196;
+// $layout-width-main: 765;
+
+
